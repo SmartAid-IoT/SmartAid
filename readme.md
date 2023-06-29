@@ -1,5 +1,5 @@
 # SmartAID
-This project is an implementation of smartAID.
+This project is an implementation of SmartAID.
 
 ## Prerequisties
 Our implementation is based on Pytorch 3.8 and Pytorch 1.12.1.
