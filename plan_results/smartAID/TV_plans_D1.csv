@@ -1,0 +1,12 @@
+,prev,prev,prev,prev,next,next,next,next,plan,plan,plan,plan,plan
+,"('tvChannel', 'mediaInputSource')","('audioMute',)","('audioVolume',)","('switch',)","('audioMute',)","('audioVolume',)","('switch',)","('tvChannel', 'mediaInputSource')",cmds,length,time,memory_num,visited_num
+0,"(520, 'digitalTv')","('unmuted',)","(29,)","('on',)","('unmuted',)","(29,)","('on',)","(581, 'digitalTv')","[('setTvChannel>0', 581)]",1,0.003607511520385742,15,18
+1,"(0, 'HDMI2')","('muted',)","(68,)","('on',)","('muted',)","(91,)","('on',)","(0, 'HDMI2')","[('setMute', 'unmuted'), ('setVolume>0', 91), ('setMute', 'muted')]",3,0.006452083587646484,92,97
+2,"(0, 'HDMI2')","('muted',)","(86,)","('off',)","('muted',)","(86,)","('on',)","(0, 'HDMI2')","[('on', None)]",1,0.00032639503479003906,2,4
+3,"(0, 'digitalTv')","('unmuted',)","(9,)","('on',)","('unmuted',)","(29,)","('on',)","(0, 'digitalTv')","[('setVolume>0', 29)]",1,0.001969575881958008,30,33
+4,"(0, 'digitalTv')","('unmuted',)","(22,)","('on',)","('unmuted',)","(27,)","('on',)","(0, 'digitalTv')","[('setVolume>0', 27)]",1,0.0018110275268554688,28,31
+5,"(0, 'HDMI2')","('unmuted',)","(53,)","('off',)","('unmuted',)","(53,)","('on',)","(0, 'HDMI2')","[('on', None)]",1,0.00029969215393066406,2,4
+6,"(645, 'digitalTv')","('unmuted',)","(46,)","('on',)","('unmuted',)","(59,)","('on',)","(645, 'digitalTv')","[('setVolume>0', 59)]",1,0.0036957263946533203,60,63
+7,"(801, 'digitalTv')","('unmuted',)","(43,)","('on',)","('unmuted',)","(74,)","('on',)","(801, 'digitalTv')","[('setVolume>0', 74)]",1,0.0046002864837646484,75,78
+8,"(518, 'digitalTv')","('unmuted',)","(75,)","('on',)","('unmuted',)","(38,)","('on',)","(518, 'digitalTv')","[('setVolume>0', 38)]",1,0.0024454593658447266,40,42
+9,"(0, 'HDMI2')","('muted',)","(42,)","('off',)","('muted',)","(42,)","('on',)","(0, 'HDMI2')","[('on', None)]",1,0.00030684471130371094,2,4

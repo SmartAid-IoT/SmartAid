@@ -1,0 +1,12 @@
+,prev,prev,prev,prev,prev,next,next,next,next,next,plan,plan,plan,plan,plan
+,"('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)","('audioMute',)","('audioVolume',)","('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)","('audioMute',)","('audioVolume',)",cmds,length,time,memory_num,visited_num
+0,"('charging',)","('off',)","('off',)","('muted',)","(0,)","('charging',)","('off',)","('off',)","('unmuted',)","(60,)",['setVolume:60'],1,0.00019812583923339844,16,15
+1,"('charging',)","('on',)","('on',)","('unmuted',)","(0,)","('charging',)","('on',)","('on',)","('unmuted',)","(60,)",['setVolume:60'],1,0.00018739700317382812,16,15
+2,"('paused',)","('on',)","('on',)","('unmuted',)","(20,)","('charging',)","('on',)","('on',)","('unmuted',)","(20,)",['returnToHome'],1,0.00019097328186035156,17,16
+3,"('cleaning',)","('on',)","('off',)","('muted',)","(0,)","('charging',)","('on',)","('off',)","('muted',)","(0,)",['returnToHome'],1,0.00019478797912597656,17,16
+4,"('charging',)","('off',)","('off',)","('unmuted',)","(60,)","('paused',)","('off',)","('off',)","('unmuted',)","(60,)",['pause'],1,0.00019049644470214844,17,16
+5,"('paused',)","('on',)","('silence',)","('unmuted',)","(0,)","('paused',)","('on',)","('silence',)","('muted',)","(0,)",['mute'],1,0.00018334388732910156,16,15
+6,"('charging',)","('on',)","('silence',)","('unmuted',)","(60,)","('charging',)","('on',)","('silence',)","('muted',)","(0,)",['mute'],1,0.00018787384033203125,17,16
+7,"('charging',)","('on',)","('off',)","('unmuted',)","(0,)","('paused',)","('on',)","('off',)","('unmuted',)","(0,)",['pause'],1,0.0001842975616455078,16,15
+8,"('charging',)","('off',)","('on',)","('muted',)","(0,)","('charging',)","('off',)","('on',)","('unmuted',)","(20,)",['setVolume:20'],1,0.00018405914306640625,16,15
+9,"('paused',)","('on',)","('off',)","('unmuted',)","(0,)","('cleaning',)","('off',)","('off',)","('unmuted',)","(0,)",['doNotDisturbOff'],1,0.00019097328186035156,16,15

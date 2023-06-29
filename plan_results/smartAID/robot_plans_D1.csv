@@ -1,0 +1,12 @@
+,prev,prev,prev,prev,next,next,next,next,plan,plan,plan,plan,plan
+,"('audioMute', 'audioVolume')","('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)","('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)","('audioMute', 'audioVolume')",cmds,length,time,memory_num,visited_num
+0,"('unmuted', 60)","('charging',)","('off',)","('on',)","('charging',)","('off',)","('on',)","('unmuted', 20)","[('setVolume>0', 20)]",1,0.0013742446899414062,5,7
+1,"('unmuted', 20)","('charging',)","('off',)","('off',)","('charging',)","('off',)","('off',)","('unmuted', 40)","[('volumeUp>0', None)]",1,0.0007181167602539062,3,5
+2,"('unmuted', 0)","('charging',)","('on',)","('silence',)","('paused',)","('on',)","('silence',)","('unmuted', 0)","[('setCleaningMode', 'stop')]",1,0.000514984130859375,3,5
+3,"('unmuted', 40)","('charging',)","('off',)","('off',)","('charging',)","('off',)","('off',)","('unmuted', 20)","[('setVolume>0', 20)]",1,0.0011413097381591797,5,7
+4,"('muted', 0)","('charging',)","('off',)","('on',)","('cleaning',)","('on',)","('on',)","('muted', 0)","[('doNotDisturbOn', None), ('setCleaningMode', 'auto')]",2,0.0006153583526611328,2,4
+5,"('unmuted', 0)","('paused',)","('off',)","('off',)","('cleaning',)","('on',)","('off',)","('unmuted', 0)","[('doNotDisturbOn', None), ('setCleaningMode', 'auto')]",2,0.0006222724914550781,2,4
+6,"('unmuted', 0)","('charging',)","('off',)","('on',)","('charging',)","('off',)","('on',)","('unmuted', 20)","[('volumeUp>0', None)]",1,0.0007104873657226562,3,5
+7,"('unmuted', 100)","('paused',)","('on',)","('on',)","('charging',)","('on',)","('on',)","('unmuted', 100)","[('returnToHome', None)]",1,0.0006425380706787109,3,6
+8,"('muted', 0)","('paused',)","('on',)","('off',)","('paused',)","('on',)","('off',)","('unmuted', 80)","[('setVolume>0', 80)]",1,0.0019745826721191406,6,10
+9,"('muted', 0)","('charging',)","('off',)","('off',)","('cleaning',)","('off',)","('off',)","('muted', 0)","[('setCleaningMode', 'auto')]",1,0.00036978721618652344,2,4
