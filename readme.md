@@ -1,4 +1,4 @@
-# smartAID
+# SmartAID
 This project is an implementation of smartAID.
 
 ## Prerequisties
