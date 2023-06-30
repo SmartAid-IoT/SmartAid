@@ -1,0 +1,12 @@
+,prev,prev,prev,prev,next,next,next,next,plan,plan,plan,plan,plan
+,"('tvChannel', 'mediaInputSource')","('audioMute',)","('audioVolume',)","('switch',)","('tvChannel', 'mediaInputSource')","('audioMute',)","('audioVolume',)","('switch',)",cmds,length,time,memory_num,visited_num
+0,"(731, 'digitalTv')","('muted',)","(78,)","('off',)","(0, 'digitalTv')","('unmuted',)","(70,)","('off',)","[('on', None), ('setTvChannel>0', 0), ('setMute', 'unmuted'), ('setVolume>0', 70), ('off', None)]",5,0.006202220916748047,72,77
+1,"(581, 'digitalTv')","('muted',)","(39,)","('off',)","(751, 'digitalTv')","('unmuted',)","(92,)","('off',)","[('on', None), ('setTvChannel>0', 751), ('setMute', 'unmuted'), ('setVolume>0', 92), ('off', None)]",5,0.012536764144897461,93,124
+2,"(0, 'HDMI2')","('muted',)","(88,)","('on',)","(0, 'HDMI2')","('unmuted',)","(39,)","('on',)","[('setMute', 'unmuted'), ('setVolume>0', 39)]",2,0.0030171871185302734,41,45
+3,"(0, 'digitalTv')","('unmuted',)","(22,)","('on',)","(0, 'HDMI2')","('muted',)","(65,)","('off',)","[('setInputSource>0', 'HDMI2'), ('setVolume>0', 65), ('setMute', 'muted'), ('off', None)]",4,0.012532711029052734,66,104
+4,"(516, 'digitalTv')","('unmuted',)","(15,)","('on',)","(0, 'HDMI2')","('muted',)","(13,)","('on',)","[('setInputSource>0', 'HDMI2'), ('setVolume>0', 13), ('setMute', 'muted')]",3,0.008991718292236328,34,52
+5,"(506, 'digitalTv')","('muted',)","(51,)","('off',)","(0, 'digitalTv')","('muted',)","(1,)","('off',)","[('on', None), ('setTvChannel>0', 0), ('setMute', 'unmuted'), ('setVolume>0', 1), ('setMute', 'muted'), ('off', None)]",6,0.0019145011901855469,3,8
+6,"(0, 'digitalTv')","('muted',)","(55,)","('on',)","(0, 'HDMI2')","('unmuted',)","(31,)","('off',)","[('setInputSource>0', 'HDMI2'), ('setMute', 'unmuted'), ('setVolume>0', 31), ('off', None)]",4,0.010507345199584961,33,72
+7,"(700, 'digitalTv')","('muted',)","(46,)","('off',)","(0, 'digitalTv')","('muted',)","(91,)","('off',)","[('on', None), ('setTvChannel>0', 0), ('setMute', 'unmuted'), ('setVolume>0', 91), ('setMute', 'muted'), ('off', None)]",6,0.00745844841003418,92,98
+8,"(648, 'digitalTv')","('muted',)","(49,)","('on',)","(580, 'digitalTv')","('unmuted',)","(69,)","('off',)","[('setTvChannel>0', 580), ('setMute', 'unmuted'), ('setVolume>0', 69), ('off', None)]",4,0.008228778839111328,70,88
+9,"(0, 'digitalTv')","('unmuted',)","(56,)","('off',)","(0, 'HDMI2')","('muted',)","(27,)","('off',)","[('on', None), ('setInputSource>0', 'HDMI2'), ('setVolume>0', 27), ('setMute', 'muted'), ('off', None)]",5,0.010284185409545898,29,67

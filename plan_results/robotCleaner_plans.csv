@@ -1,0 +1,12 @@
+,prev,prev,prev,prev,next,next,next,next,plan,plan,plan,plan,plan
+,"('audioMute', 'audioVolume')","('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)","('audioMute', 'audioVolume')","('samsungce.robotCleanerOperatingState',)","('custom.doNotDisturb',)","('robotCleanerTurboMode',)",cmds,length,time,memory_num,visited_num
+0,"('unmuted', 20)","('cleaning',)","('on',)","('silence',)","('unmuted', 20)","('cleaning',)","('on',)","('on',)","[('setRobotCleanerTurboMode', 'on')]",1,0.0006175041198730469,2,5
+1,"('unmuted', 100)","('paused',)","('off',)","('silence',)","('unmuted', 20)","('paused',)","('on',)","('off',)","[('setVolume>0', 20), ('doNotDisturbOn', None), ('setRobotCleanerTurboMode', 'off')]",3,0.0019114017486572266,3,9
+2,"('unmuted', 0)","('paused',)","('off',)","('silence',)","('unmuted', 0)","('charging',)","('on',)","('on',)","[('doNotDisturbOn', None), ('setRobotCleanerTurboMode', 'on'), ('returnToHome', None)]",3,0.0012879371643066406,3,7
+3,"('muted', 0)","('paused',)","('on',)","('on',)","('unmuted', 0)","('paused',)","('on',)","('silence',)","[('mute>0', None), ('setRobotCleanerTurboMode', 'silence')]",2,0.0007534027099609375,2,4
+4,"('unmuted', 0)","('cleaning',)","('off',)","('off',)","('unmuted', 100)","('paused',)","('off',)","('on',)","[('setVolume>0', 100), ('setRobotCleanerTurboMode', 'on'), ('setCleaningMode', 'stop')]",3,0.0027310848236083984,7,13
+5,"('unmuted', 80)","('cleaning',)","('off',)","('silence',)","('unmuted', 0)","('cleaning',)","('off',)","('on',)","[('setMute>0', 'unmuted'), ('setRobotCleanerTurboMode', 'on')]",2,0.002997159957885742,7,15
+6,"('unmuted', 20)","('cleaning',)","('off',)","('silence',)","('muted', 0)","('charging',)","('off',)","('off',)","[('mute>0', None), ('setRobotCleanerTurboMode', 'off'), ('returnToHome', None)]",3,0.0016984939575195312,3,9
+7,"('unmuted', 60)","('paused',)","('on',)","('silence',)","('unmuted', 0)","('cleaning',)","('on',)","('silence',)","[('setMute>0', 'unmuted'), ('setCleaningMode', 'auto')]",2,0.0028684139251708984,7,14
+8,"('unmuted', 0)","('cleaning',)","('off',)","('off',)","('unmuted', 0)","('cleaning',)","('off',)","('on',)","[('setRobotCleanerTurboMode', 'on')]",1,0.00048065185546875,3,5
+9,"('unmuted', 40)","('paused',)","('on',)","('silence',)","('muted', 0)","('cleaning',)","('off',)","('silence',)","[('mute>0', None), ('doNotDisturbOff', None), ('setCleaningMode', 'auto')]",3,0.0010576248168945312,2,4
