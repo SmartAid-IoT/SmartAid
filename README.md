@@ -19,7 +19,7 @@ The log of each device is a data frame of length N, where N is the number of ins
 <code/>cap_value.py</code> is a dictionary of possible values for each capability of devices.
 
 ## Running the code
-You can train the models for smartAID by running <code/>python train.py</code> in <code/>src</code> folder with arguments <code/>--device</code> and <code/>--save</code>. Set <code/>--device</code> as one among 'bulb', 'TV', 'robotCleaner', and 'airPurifier'. If you do not set <code/>--device</code>, the default device is 'bulb. Set <code/>--save</code> argument to 'False' to not save the results. The default setting is 'True'.
+You can train the models for smartAID by running <code/>python train.py</code> in <code/>src</code> folder with arguments <code/>--device</code> and <code/>--save</code>. Set <code/>--device</code> as one among 'bulb', 'TV', 'robotCleaner', and 'airPurifier'. If you do not set <code/>--device</code>, the default device is 'bulb'. Set <code/>--save</code> argument to 'False' to not save the results. The default setting is 'True'.
 
 After training the models, you can do action planning by running <code/>python plan.py</code> with arguments <code/>--device</code>, <code/>--num</code>, and <code/>--save</code>.
 Set <code/>--num</code> as the number of random states to do action planning on. If you do not set <code/>--num</code>, the default number is 1000.
