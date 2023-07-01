@@ -26,7 +26,7 @@ Set <code/>--num</code> as the number of random states to do action planning on.
 
 We provide <code/>demo.sh</code>, which trains the model and creates 100 plans on the device 'bulb'. The result of the <code/>demo.sh</code> would be like below:
 
-<code/>
+```Bash
 ===== BULB =====
 
 AVAILABLE COMMANDS:
@@ -92,4 +92,4 @@ min      2.000000    0.003087   32.000000    48.000000
 50%      4.000000    0.017671  101.000000   200.500000
 75%      4.000000    0.022289  154.250000   231.750000
 max      5.000000    0.029956  201.000000   311.000000
-</code>
+```
