@@ -333,9 +333,6 @@ def group_and_encode(device, path, cap_value):
     log, groups = set_groups(log, groups)
     capabilites = get_capabilities(log, groups)
     
-    print("\nGROUPED CAPABILITIES:")
-    print('\n'.join([str(c) for c in capabilites]))
-    
     cmd_logs = get_cmd_logs(log)
     cmd_cap, encoders = divide_by_cmd_cap(device, log, capabilites)
     success_cmd = check_cmds(cmd_cap, cmd_logs, capabilites)

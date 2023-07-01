@@ -124,34 +124,6 @@ def random_state(capabilities, cap_value):
         state[cap] = tuple(val)
     return state
 
-# def ungroup(state):
-#     for cap in list(state.keys()):
-#         if len(cap) > 1:
-#             for i in range(len(cap)):
-#                 state.update({(cap[i],):(state[cap][i],)})
-#             state.pop(cap)
-#     return state
-
-# def group(state, capabilities):
-#     for cap in capabilities:
-#         if len(cap)>1:
-#             val = tuple()
-#             for i in range(len(cap)):
-#                 if type(state[(cap[i],)]) != tuple:
-#                     state[(cap[i],)] = (state[(cap[i],)],)
-#                 val += state[(cap[i],)]
-#                 state.pop((cap[i],))
-#             state[cap] = val
-#     return state
-
-# def random_states(capabilities, cap_value, level, adj_list):
-#     prev = random_state(capabilities, cap_value)
-#     next = ungroup(prev.copy())
-#     for i in range(level):
-#         next = random.sample([i for i in adj_list(next)], 1)[0][0]
-#     next = group(next, capabilities)
-#     return prev, next
-
 class done(Exception): pass
 def set_cap(state, cap, val, models, condition, arguments):
     if state[cap] == val:
