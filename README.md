@@ -65,7 +65,7 @@ Accuracy: 1.0
  40%|███████████████████████████████████████▌                                                           | 12/30 [00:08<00:12,  1.42it/s]
 Accuracy: 1.0
 
-Average Regression Score: 0.9972419227738376
+Average Regression Score: 1.0
 Average Classification Score: 1.0
 
 === RESULT ===

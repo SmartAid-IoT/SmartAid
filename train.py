@@ -31,11 +31,11 @@ def get_closest(array, value):
     idx = (np.abs(array - value)).argmin()
     return array[idx]
 
-def change_empty(log):
+def change_empty(log): ## replaces empty string to 0
     log.replace('', '0', inplace=True)
     return log
 
-def group_cap(groups, cap):
+def group_cap(groups, cap): # groups capability in given groups
     count = 1
     while count != 0:
         count = 0
@@ -58,7 +58,7 @@ def group_cap(groups, cap):
         groups[i] = new
     return groups
 
-def find_groups_by_change(log):
+def find_groups_by_change(log): # find group of capability in by change in log
     cap_groups = log['prev'].compare(log['next']).agg(lambda x: tuple(set([i[0] for i in list(x.dropna().index)])), axis=1).value_counts().keys()
     groups = []
     group_cap = []
@@ -79,7 +79,7 @@ def find_groups_by_change(log):
         groups[i] = new
     return groups
 
-def set_groups(log, groups):
+def set_groups(log, groups): # rename capabilities in log to set group
     for i in range(len(groups)):
         for c in range(len(groups[i])):
             if '+' not in groups[i][c]:
@@ -87,7 +87,7 @@ def set_groups(log, groups):
                 groups[i][c] = 'h'+str(i)+'+'+groups[i][c]
     return log, groups
 
-def get_capabilities(log, groups):
+def get_capabilities(log, groups): # get available capabilites from log
     capabilites = log.prev.columns.values.tolist()
     for cap in groups:
         for c in cap:
@@ -98,7 +98,7 @@ def get_capabilities(log, groups):
         capabilites.remove(())
     return capabilites
 
-def get_log_with_target_change(c_log, target):
+def get_log_with_target_change(c_log, target): # get log with targeted capability change
     def powerset(iterable):
         s = list(iterable)
         return itertools.chain.from_iterable(itertools.combinations(s, r) for r in range(len(s)+1))
@@ -118,12 +118,12 @@ def get_log_with_target_change(c_log, target):
             continue
     return c_log.loc[idx]
 
-def get_log_with_single_change(log):
+def get_log_with_single_change(log): # get log with only single capability change
     change2caps = log[log['prev'].compare(log['next'], keep_shape=True).agg(lambda x: list(x.dropna()), axis=1).str.len().gt(2)].index
     changeNoCaps = log[log['prev'].compare(log['next'], keep_shape=True).agg(lambda x: list(x.dropna()), axis=1).str.len().lt(1)].index
     return log.drop(np.concatenate([change2caps,changeNoCaps]))
 
-def get_dep(device, log, encoders, capabilites):
+def get_dep(device, log, encoders, capabilites): # find dependency from the given log
     dep = {}
     for cap in log['prev']:
         if cap in encoders.keys():
@@ -155,7 +155,7 @@ def get_dep(device, log, encoders, capabilites):
     dep.update(h)
     return dep
 
-def encode(cmd_cap):
+def encode(cmd_cap): # encode string values
     encoders = {}
     for cmd in cmd_cap:
         for cap in cmd_cap[cmd]['log']['prev']:
@@ -195,7 +195,7 @@ def encode(cmd_cap):
                     encoders[cap] = encoder
     return cmd_cap, encoders
 
-def divide_by_cmd_cap(device, log, capabilites):
+def divide_by_cmd_cap(device, log, capabilites): # devide logs of commands by changed capability values
 
     cmds = log.cmd.command.unique()
     grouped = log.groupby(('cmd','command'))
@@ -238,7 +238,7 @@ def divide_by_cmd_cap(device, log, capabilites):
         
     return cmd_logs, encoders
 
-def find_groups_by_dep(cmd_cap):
+def find_groups_by_dep(cmd_cap): # create group of capabilities considering the dependency
     groups = []
     pair = []
     cap = 0
@@ -282,7 +282,7 @@ def find_groups_by_dep(cmd_cap):
     
     return groups
 
-def check_cmds(cmd_cap, cmd_logs, capabilites):
+def check_cmds(cmd_cap, cmd_logs, capabilites): # check if the commands work as expected in when prerequisite condition is matched
     success_target = []
     success_cmd = []
     for cmd in cmd_cap:
@@ -321,7 +321,7 @@ def check_cmds(cmd_cap, cmd_logs, capabilites):
     print()
     return success_cmd
 
-def group_and_encode(device, path, cap_value):
+def group_and_encode(device, path, cap_value): # process all grouping and encoding
     log = change_empty(pd.read_pickle(path))
         
     groups = find_groups_by_change(log)
@@ -345,7 +345,7 @@ def group_and_encode(device, path, cap_value):
 
 ### TRAIN MODELS ###
 
-class LogisticRegression(torch.nn.Module):
+class LogisticRegression(torch.nn.Module): # classification model 
     def __init__(self, input_dim, output_dim):
         super(LogisticRegression, self).__init__()
         self.linear = torch.nn.Linear(input_dim, output_dim)
@@ -358,7 +358,7 @@ class LogisticRegression(torch.nn.Module):
     def l1(self):
         return torch.sum(torch.abs(self.linear.weight))# + torch.sum(torch.abs(self.linear.bias))
     
-class LinearRegression(torch.nn.Module):
+class LinearRegression(torch.nn.Module): # regression model
     def __init__(self, input_dim):
         super(LinearRegression, self).__init__()
         self.linear = torch.nn.Linear(input_dim, 1)
@@ -370,7 +370,7 @@ class LinearRegression(torch.nn.Module):
     def l1(self):
         return torch.sum(torch.abs(self.linear.weight)) #+ torch.sum(torch.abs(self.linear.bias))
     
-def fit_classification(x_train, x_test, y_train, y_test, num_class, argument):
+def fit_classification(x_train, x_test, y_train, y_test, num_class, argument): # fit classification model
 
     x_train = torch.tensor(x_train, dtype=torch.float)
     x_test = torch.tensor(x_test, dtype=torch.float)
@@ -416,7 +416,7 @@ def fit_classification(x_train, x_test, y_train, y_test, num_class, argument):
                 break
     return weight, bias, np.mean(acc), model
 
-def fit_regression(x_train, x_test, y_train, y_test, argument):
+def fit_regression(x_train, x_test, y_train, y_test, argument): # fit regression model
 
     x_train = torch.tensor(x_train, dtype=torch.float)
     x_test = torch.tensor(x_test, dtype=torch.float)
@@ -463,13 +463,13 @@ def fit_regression(x_train, x_test, y_train, y_test, argument):
                 break
     return weight, bias, np.mean(acc), model
 
-def arg_exists(log):
+def arg_exists(log): #check if the command has argument
     if type(log['cmd']['arguments'].iloc[0]) == bool:
             return None
     else:
         return True
     
-def product_dep(dep):
+def product_dep(dep): # create all possible state in given condition
     for d in list(dep.keys()):
         if len(d) > 1:
             name = tuple(n.split('+')[-1] for n in d)
@@ -477,7 +477,7 @@ def product_dep(dep):
             dep.pop(d)
     return dep
 
-def normalize_toOnehot(cmd, x, encoders, target, cap_value, normalize=False):
+def normalize_toOnehot(cmd, x, encoders, target, cap_value, normalize=False): # normalize numerical value and change ccategorical value to one hot vector
     new_x = []
     for cap in list(x.columns):
         if cap == 'arguments':
@@ -514,7 +514,7 @@ def normalize_toOnehot(cmd, x, encoders, target, cap_value, normalize=False):
             new_x.append(pd.DataFrame(x[cap].apply(lambda e: np.eye(num)[e]).values.tolist()))
     return pd.concat(new_x, axis=1), encoders
 
-def split_x_y(cmd_log, arguments):
+def split_x_y(cmd_log, arguments): # split log to input and output
 
     log = cmd_log['log']
     target = list(cmd_log['target'])
@@ -537,7 +537,7 @@ def split_x_y(cmd_log, arguments):
  
     return x_list, y_list
 
-def train(cmd_logs, encoders, cap_value):
+def train(cmd_logs, encoders, cap_value): # train all models
 
     result = []
     acc_r, acc_c = [], []
@@ -619,18 +619,18 @@ def train(cmd_logs, encoders, cap_value):
     return result
 
 
-def get_cmd_logs(log):
+def get_cmd_logs(log): # get logs grouped by commands
     cmd_groups = log.groupby(('cmd', 'command')).groups
     cmd_logs = {i:log.loc[cmd_groups[i]] for i in cmd_groups}
     return cmd_logs
 
-def remove_failed_cmd(cmd_cap, success_cmd):
+def remove_failed_cmd(cmd_cap, success_cmd): # remove not working commands
     for c in list(cmd_cap.keys()):
         if c not in success_cmd:
             cmd_cap.pop(c)
     return cmd_cap
 
-def rename_encoders(encoders):
+def rename_encoders(encoders): # change encoder name to original capabilities's name
     for cap in list(encoders.keys()):
         if '+' in cap:
             encoders.update({cap.split('+')[-1]:encoders[cap]})

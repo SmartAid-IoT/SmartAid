@@ -23,52 +23,42 @@ def save_data(path, data):
     with open(path, 'wb') as f:
         pickle.dump(data,f)
         
-def get_closest(array, value):
+def get_closest(array, value): # get closest value in possible set of values
     array = np.asarray(array)
     idx = (np.abs(array - value)).argmin()
     return array[idx]
 
-def get_capabilities(result):
+def get_capabilities(result): # get capabilities of the device
     capabilities = list(result.target.value_counts().keys())
     return capabilities
 
-def get_arguments(result, cap_value):
-    arguments = result.argument.to_dict()
-    for arg in arguments:
-        if arguments[arg]:
-            try:
-                arguments[arg] = cap_value[result.loc[arg].target][0]
-            except:
-                argument = []
-                for a in range(len(result.loc[arg].target)):
-                    argument.append(list(cap_value[(result.loc[arg].target[a],)][0]))
-                arguments[arg] = tuple(set(sum(argument, [])))
-    return arguments
-
-def get_condition(result, capabilities):
+def get_condition(result, capabilities): # get prerequisite condition of the commands
     dependencies = {c:{} for c in capabilities}
     for i in range(len(result)):
         dependencies[result.iloc[i].target].update({result.iloc[i].name:result.iloc[i].dependencies})
     return dependencies
 
-def get_cap_ord(result, capabilities):
+def get_cap_ord(result, capabilities): # get capability order
     dep_list = sum([[list(k.keys())[0], j] if len(k)>0 else [None, j] for j,k in zip(result.target.tolist(), result.dependencies.tolist())], [])
     cap_ord = []
     for i in dep_list:
         if i and i not in cap_ord:
             cap_ord.append(i)
+    for c in capabilities:
+        if c not in cap_ord:
+            cap_ord.append(c)
     return cap_ord[::-1]
 
 
 ### Bulid Models ###
     
-def reg_cls(calc, info, encoders, cap_value, i):
+def reg_cls(calc, info, encoders, cap_value, i): # return output considering if the model is regression or classification
     if info.types[i] == 'c':
         return (encoders[info.target[i]].inverse_transform([calc])[0])
     if info.types[i] == 'r':
         return (get_closest(cap_value[(info.target[i].split('+')[-1],)][0], calc))
     
-def encode(cmd, target, encoders, arguments, cap_value, prev, cur, arg=-1):
+def encode(cmd, target, encoders, arguments, cap_value, prev, cur, arg=-1): # encode the input
     encode_prev = []
     for i in range(len(prev)):
         if type(prev[i]) == str:
@@ -95,13 +85,13 @@ def encode(cmd, target, encoders, arguments, cap_value, prev, cur, arg=-1):
     else:
         return [encode_prev]
 
-def model(info, encoders, cap_value, arguments):
+def model(info, encoders, cap_value, arguments): # model definition
         if info.argument:
             return lambda prev, arg: tuple([reg_cls(info.model[i].predict(encode(info.name, info.target, encoders, arguments, cap_value, prev,i, arg,)), info, encoders, cap_value, i) for i in range(len(info.model))])
         else:
             return lambda prev: tuple([reg_cls(info.model[i].predict(encode(info.name, info.target, encoders, arguments, cap_value, prev, i)), info, encoders, cap_value, i) for i in range(len(info.model))])
 
-def get_models(result, capabilities, cap_value, encoders, arguments):
+def get_models(result, capabilities, cap_value, encoders, arguments): # get command models
     models = {k:{} for k in capabilities}
     for cmd in result.index:
         info = result.loc[cmd]
@@ -111,7 +101,7 @@ def get_models(result, capabilities, cap_value, encoders, arguments):
 
 ### Create random states for planning ###
 
-def random_state(capabilities, cap_value):
+def random_state(capabilities, cap_value): # create random state in given device 
     state = {}
     for cap in capabilities:
         if len(cap)>1:
@@ -125,7 +115,7 @@ def random_state(capabilities, cap_value):
     return state
 
 class done(Exception): pass
-def set_cap(state, cap, val, models, condition, arguments):
+def set_cap(state, cap, val, models, condition, arguments): # set values of capability to the target
     if state[cap] == val:
         return state, [], 1, 1
     q = [state[cap]]
@@ -187,7 +177,7 @@ def set_cap(state, cap, val, models, condition, arguments):
             currstate[cap] = models[cap][cmd](currstate[cap], arg)
     return currstate, plan, maxq, visited
 
-def smartAID(curr, query, cap_ord, condition, models, arguments):
+def smartAID(curr, query, cap_ord, condition, models, arguments): # run smartAID's algorithm
     curr_state = curr
     rtn = []
     maxq = 0
@@ -199,7 +189,7 @@ def smartAID(curr, query, cap_ord, condition, models, arguments):
         visited += vs
     return (None, rtn), maxq, visited
 
-def plan(num, cap_value, capabilities, cap_ord, condition, models, arguments):
+def plan(num, cap_value, capabilities, cap_ord, condition, models, arguments): # plan action path for random states
     plans = []
     for i in tqdm(range(num)):
         prev = random_state(capabilities, cap_value)
