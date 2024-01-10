@@ -77,3 +77,10 @@ min      2.000000    0.003087   32.000000    48.000000
 75%      4.000000    0.022289  154.250000   231.750000
 max      5.000000    0.029956  201.000000   311.000000
 ```
+
+## Contact us
+- Jongjin Kim (j2kim99@snu.ac.kr)
+- Jaeri Lee (jlunits2@snu.ac.kr)
+- Jeongin Yun (yji00828@snu.ac.kr)
+- U Kang (ukang@snu.ac.kr)
+- Data Mining Lab. at Seoul National University.
