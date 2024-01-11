@@ -1,3 +1,14 @@
+'''
+SmartAid: Dependency-Aware Action Planning for Smart Home
+Authors:
+- Jongjin Kim (j2kim99@snu.ac.kr), Seoul National University
+- Jaeri Lee (jlunits2@snu.ac.kr), Seoul National University
+- Jeongin Yun (yji00828@snu.ac.kr), Seoul National University
+- U Kang (ukang@snu.ac.kr), Seoul National University
+
+Please contact the authors to use the source code.
+'''
+
 from tqdm import tqdm
 import pandas as pd
 import numpy as np
