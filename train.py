@@ -1,3 +1,14 @@
+'''
+SmartAid: Dependency-Aware Action Planning for Smart Home
+Authors:
+- Jongjin Kim (j2kim99@snu.ac.kr), Seoul National University
+- Jaeri Lee (jlunits2@snu.ac.kr), Seoul National University
+- Jeongin Yun (yji00828@snu.ac.kr), Seoul National University
+- U Kang (ukang@snu.ac.kr), Seoul National University
+
+Please contact the authors to use the source code.
+'''
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
